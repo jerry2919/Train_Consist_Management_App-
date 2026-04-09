@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class TrainApp {
@@ -20,7 +19,7 @@ public class TrainApp {
 
     public static void main(String[] args) {
 
-        System.out.println("UC7 - Sort Bogies by Capacity");
+        System.out.println("UC10 - Count Total Seats in Train");
         System.out.println("===================================");
 
         List<Bogie> bogies = new ArrayList<>();
@@ -29,14 +28,17 @@ public class TrainApp {
         bogies.add(new Bogie("AC Chair", 60));
         bogies.add(new Bogie("First Class", 24));
 
-        bogies.sort(Comparator.comparingInt(b -> b.capacity));
-
-        System.out.println("\nSorted Bogies by Capacity:");
-
+        System.out.println("\nBogies in Train:");
         for (Bogie b : bogies) {
             System.out.println(b);
         }
 
-        System.out.println("\nUC7 operations completed successfully...");
+        int total = bogies.stream()
+                .map(b -> b.capacity)
+                .reduce(0, Integer::sum);
+
+        System.out.println("\nTotal Seating Capacity: " + total);
+
+        System.out.println("\nUC10 operations completed successfully...");
     }
 }
