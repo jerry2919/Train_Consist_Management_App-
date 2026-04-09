@@ -11,5 +11,3 @@ public class TrainApp {
         System.out.println("Initial bogie count: " + trainConsist.size());
     }
 }
-
-git check
