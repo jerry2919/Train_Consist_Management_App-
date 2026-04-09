@@ -9,5 +9,6 @@ public class TrainApp {
         List<String> trainConsist = new ArrayList<>();
 
         System.out.println("Initial bogie count: " + trainConsist.size());
+        System.out.println("Current train consist: " + trainConsist);
     }
 }
