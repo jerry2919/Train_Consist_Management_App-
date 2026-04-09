@@ -1,6 +1,6 @@
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TrainApp {
 
@@ -20,7 +20,7 @@ public class TrainApp {
 
     public static void main(String[] args) {
 
-        System.out.println("UC7 - Sort Bogies by Capacity");
+        System.out.println("UC8 - Filter Passenger Bogies Using Streams");
         System.out.println("===================================");
 
         List<Bogie> bogies = new ArrayList<>();
@@ -29,14 +29,16 @@ public class TrainApp {
         bogies.add(new Bogie("AC Chair", 60));
         bogies.add(new Bogie("First Class", 24));
 
-        bogies.sort(Comparator.comparingInt(b -> b.capacity));
+        List<Bogie> filtered = bogies.stream()
+                .filter(b -> b.capacity > 60)
+                .collect(Collectors.toList());
 
-        System.out.println("\nSorted Bogies by Capacity:");
+        System.out.println("\nFiltered Bogies (Capacity > 60):");
 
-        for (Bogie b : bogies) {
+        for (Bogie b : filtered) {
             System.out.println(b);
         }
 
-        System.out.println("\nUC7 operations completed successfully...");
+        System.out.println("\nUC8 operations completed successfully...");
     }
 }
